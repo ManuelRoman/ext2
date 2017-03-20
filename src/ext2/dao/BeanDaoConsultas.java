@@ -1,6 +1,7 @@
 package ext2.dao;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityExistsException;
@@ -16,5 +17,7 @@ public interface BeanDaoConsultas {
 	public List<Artista> listaArtistasCategoria(String Categoria) throws Exception, EntityExistsException, IllegalArgumentException;
 	
 	public List<Artista> listaArtistasCategoria2(String Categoria) throws Exception, EntityExistsException, IllegalArgumentException;
+	
+	public ArrayList<String> obtenerDNIs(String dato) throws Exception, EntityExistsException, IllegalArgumentException;
 	
 }

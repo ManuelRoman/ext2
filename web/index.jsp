@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Index</title>
+<script type="text/javascript" src="js/jquery320.js"></script>
+<script type="text/javascript" src="js/funciones.js"></script>
 <style>
 	div{
 	position: absolute;
@@ -44,7 +46,9 @@
 	</form>
 	<hr>
 	<form action="/ext2romangracia/controlador" method="post">
-		<label for="dni">Buscar por DNI:</label><input id="dni" type="text" name="dni" maxlength="9" pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))" placeholder="Ej: 12345678A" required="required" ><br>
+		<label for="buscaDNI">Buscar por DNI:<input list="dnis" name="dni" id="buscaDNI" required="required">
+  		<datalist id="dnis">	
+  		</datalist>
 		<input type="hidden" name="accion" value="consultadni">
 		<input type="submit" value="Consultar artistas por dni">
 	</form>

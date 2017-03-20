@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NamedQuery(name="Artista.findAll", query="SELECT a FROM Artista a")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo")
-public class Artista implements Serializable {
+public abstract class Artista implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public static final String TODOS = "Artista.findAll";
 

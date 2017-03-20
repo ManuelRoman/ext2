@@ -100,4 +100,26 @@ public class BeanDaoConsultasIMPL extends BeanDaoConexionIML implements BeanDaoC
 		return listaArtista;
 	}
 
+	@Override
+	public ArrayList<String> obtenerDNIs(String dato) throws Exception, EntityExistsException, IllegalArgumentException {
+		boolean conexionNula = false;
+		if (em == null) {
+			getConexion();
+			conexionNula = true;
+		}
+		Query query = null;
+		ArrayList<String> listaDNIs = new ArrayList();
+		try {
+			String jpql = "SELECT a.dni FROM Artista a WHERE a.dni like ?1 order by a.dni";
+			query = em.createQuery(jpql);
+			query.setParameter(1, dato+"%");
+			listaDNIs = (ArrayList<String>) query.getResultList();
+		} finally {
+			if (conexionNula) {
+				close();
+			}
+		}
+		return listaDNIs;
+	}
+
 }

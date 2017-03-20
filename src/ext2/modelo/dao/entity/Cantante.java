@@ -3,14 +3,11 @@ package ext2.modelo.dao.entity;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 
 @Entity
-@Table(name="artista")
-@NamedQuery(name="Cantante.findAll", query="SELECT c FROM Artista c")
+@DiscriminatorValue(value = "Cantante")
 public class Cantante extends Artista implements Serializable {
 	private static final long serialVersionUID = 1L;
 
